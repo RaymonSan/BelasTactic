@@ -1,36 +1,163 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BelasTactic - Dutch Tax Strategy SaaS
 
-## Getting Started
+> *"Making Belastingdienst paperwork feel like a spa day."*
 
-First, run the development server:
+An open-source SaaS application that helps Dutch individuals optimize their tax strategy using AI-powered analysis and transparent calculations.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Phase 1 - Foundation & Local AI Setup ✅
+
+Phase 1 is **COMPLETE**! We have successfully set up:
+
+- ✅ Next.js 14 monorepo with app router
+- ✅ TypeScript configuration with strict mode  
+- ✅ Core dependencies (tRPC, Zod, React Hook Form, etc.)
+- ✅ Ollama installation with Llama 3.1 8B model
+- ✅ Basic AI service abstraction layer
+- ✅ Environment configuration
+- ✅ Health check API endpoint
+- ✅ Test page for verification
+
+## 🏗️ Architecture
+
+### Technology Stack
+- **Frontend**: Next.js 14 with App Router, React, TypeScript
+- **AI**: Local Ollama (Llama 3.1 8B) + OpenAI embeddings (future)
+- **Database**: Supabase (PostgreSQL + pgvector) - Phase 2
+- **Deployment**: Vercel - Phase 2
+- **Styling**: Tailwind CSS
+
+### Project Structure
+```
+belastactic/
+├── src/app/                 # Next.js 14 app router
+├── packages/
+│   ├── core/               # Shared types & utilities
+│   ├── ai/                 # AI services & abstractions
+│   └── tax-rules/          # Dutch tax logic (Phase 5)
+├── scripts/                # Automation scripts
+└── docs/                   # Phase documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Setup Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
+- Node.js 18+ (LTS recommended)
+- macOS with Homebrew (for Ollama)
+- Git
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Installation
 
-## Learn More
+1. **Clone the repository**
+   ```bash
+   git clone [your-repo-url]
+   cd belastactic
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Install and setup Ollama**
+   ```bash
+   # Install Ollama
+   brew install ollama
+   
+   # Start Ollama service
+   brew services start ollama
+   
+   # Download Llama 3.1 8B model (optimized for M2 MacBook)
+   ollama pull llama3.1:8b
+   
+   # Test the model
+   ollama run llama3.1:8b "Explain Dutch Box 1 income tax"
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Setup environment variables**
+   ```bash
+   cp .env.example .env.local
+   # Edit .env.local with your configuration
+   ```
 
-## Deploy on Vercel
+5. **Start development server**
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. **Verify setup**
+   - Open http://localhost:3000/test
+   - Click "Check Health Status" to verify all services
+   - Click "Test Dutch Tax Question" to test AI integration
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🧪 Testing the Setup
+
+### Health Check
+Visit http://localhost:3000/api/health to see system status:
+```json
+{
+  "status": "healthy",
+  "services": {
+    "ollama": { "status": "healthy", "message": "Ollama connected with Llama 3.1 8B" },
+    "environment": { "status": "healthy" }
+  }
+}
+```
+
+### AI Test
+Visit http://localhost:3000/test and use the "Test Dutch Tax Question" button to verify the AI is responding correctly to tax-related queries.
+
+## 📋 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production  
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript checks
+
+## 🔧 Configuration
+
+### Environment Variables
+Key environment variables for Phase 1:
+- `OLLAMA_BASE_URL` - Ollama API endpoint (default: http://localhost:11434)
+- `JWT_SECRET` - Secret for JWT tokens
+- `NODE_ENV` - Environment (development/production)
+
+### Ollama Configuration
+The app uses Llama 3.1 8B model which is optimized for:
+- M2 MacBook Pro performance
+- Dutch tax domain knowledge
+- Cost-effective local processing
+
+## 🐛 Troubleshooting
+
+### Ollama Issues
+- **"command not found: ollama"**: Install with `brew install ollama`
+- **Model not found**: Run `ollama pull llama3.1:8b`
+- **Service not running**: Run `brew services start ollama`
+- **Memory issues**: Close other applications, ensure 16GB+ RAM
+
+### Development Issues
+- **Port 3000 in use**: Change port with `npm run dev -- -p 3001`
+- **TypeScript errors**: Run `npm run type-check` to see details
+- **Build fails**: Ensure all dependencies are installed with `npm install`
+
+## 📚 Next Steps (Phase 2)
+
+The next phase will focus on:
+- Supabase database setup with EU compliance
+- Access code authentication system  
+- Automated backup to GitHub
+- GDPR compliance foundation
+
+## 🤝 Contributing
+
+This is currently a personal project for friends and family testing. Phase documentation is available in the `/docs` folder.
+
+## 📄 License
+
+MIT License - Open source SaaS
+
+---
+
+**Phase 1 Status**: ✅ COMPLETE  
+**Next Phase**: Infrastructure & Authentication  
+**Target**: Production-ready MVP in 7 weeks
