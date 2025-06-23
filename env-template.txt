@@ -1,0 +1,41 @@
+# =================================================================
+# BelasTactic - Phase 2: Infrastructure & Authentication
+# =================================================================
+
+# Supabase Configuration (Cloud)
+# Get these from your Supabase project dashboard: https://app.supabase.com
+SUPABASE_URL=https://your-project-ref.supabase.co
+SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+# JWT Secret for Access Code Authentication
+# Generate with: openssl rand -base64 32
+JWT_SECRET=your-super-secret-jwt-key-here
+
+# GitHub Backup Configuration
+# Create a personal access token with repo permissions
+BACKUP_GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+BACKUP_REPO=RaymonSan/belastactic-backups
+
+# AI Configuration (from Phase 1)
+OLLAMA_URL=http://localhost:11434
+OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+# Development Environment
+NODE_ENV=development
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Database Encryption Key (for pgcrypto)
+# Generate with: openssl rand -base64 32
+DATABASE_ENCRYPTION_KEY=your-database-encryption-key-here
+
+# GDPR Configuration
+DATA_RETENTION_YEARS=3
+AUDIT_LOG_RETENTION_DAYS=90
+
+# Email Configuration (Future - Phase 6)
+# SMTP_HOST=smtp.sendgrid.net
+# SMTP_PORT=587
+# SMTP_USER=apikey
+# SMTP_PASS=SG.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# FROM_EMAIL=no-reply@belastactic.com 
